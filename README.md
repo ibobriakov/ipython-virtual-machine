@@ -1,94 +1,98 @@
-Mining the Social Web (2nd Edition)
-=================================
+﻿
+Quick Start Instructions
 
-## Summary
+In order to start the Vagrant-based virtual machine for Python environment, there are just a few easy steps to follow:
 
-_Mining the Social Web, 2nd Edition_ is available through O'Reilly Media, Amazon, and other fine book retailers. [Purchasing the ebook directly from O'Reilly](http://bit.ly/135dHfs) offers a number of great benefits, including a variety of digital formats and continual updates to the text of book for life! Better yet, if you choose to use O'Reilly's DropBox or Google Drive synchronization, your ebooks will automatically update every time there's an update. In other words, you'll always have the latest version of the book if you purchase the ebook through O'Reilly, which is why it's the recommended option in comparison to a paper copy or other electronic version. (If you prefer a [paperback or Kindle version from Amazon](http://amzn.to/GPd59m), that's a fine option as well.)
+1) Download and install the latest copy of VirtualBox (https://www.virtualbox.org/) for your operating system
+Although additional working knowledge of VirtualBox could be helpful, just accomplishing an installation is sufficient. However, see an important note below for Windows and Linux users that may require you to adjust your computer's BIOS settings for virtualization
+The version of VirtualBox used as of this writing is 4.2.x. Type "VirtualBox --help" in a terminal to get version information if you already have it installed.
 
-There's an incredible turn-key virtual machine experience for this second edition of the book that provides you with a powerful social web mining toolbox. This toolbox provides the ability to explore and run all of the source code in a hassle-free manner. All that you have to do is [follow a few simple steps](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/_Appendix A - Virtual Machine Experience.html) to get the virtual machine installed, and you'll be running the example code in as little as 20-30 minutes. (And by the way, most of that time is waiting for files to download.)
+2) Download and install Vagrant (http://www.vagrantup.com/) for your operating system
+It is highly recommended that you take a moment to read Vagrant's excellent "Getting Started" guide as a matter of initial familiarization
+If you already have Vagrant installed, be sure that it's running version 1.2 or higher by typing "vagrant -v" in a terminal
+The creator of Vagrant has written a book about it entitled Vagrant: Up and Running (http://oreil.ly/160VQcv)
 
-This [short screencast](https://vimeo.com/72383764) demonstrates the steps involved in installing the virtual machine, which installs every single dependency for you automatically and save you a lot of time. Even sophisticated power users tend to prefer using it versus using their own environments.
+3) Checkout source code of the virtual machine from this GitHub repository to your machine using Git or with the download links at the top of the main GitHub page.
+Windows users should install Git for Windows (http://msysgit.github.io/) as it comes bundled with an SSH client that might come in handy later if you'd like to easily login to your virtual machine guest with Vagrant. (See screenshots and notes below. It is critical that you choose the option that includes an SSH client.)
+Although you could opt to download the latest version of the source code from GitHub as a zip file (link to archive), basic familiarization with Git is likely to serve you well in your programming endeavors and is encouraged
+In a terminal, navigate to the top level directory of the source code checkout that contains Vagrantfile.
+On a Windows system, look for a Command Prompt program that's likely somewhere under your "Accessories" menu.
 
-If you experience any problems at all with installation of the virtual machine, file an issue here on GitHub. Be sure to also follow [@SocialWebMining](http://twitter.com/socialwebmining) on Twitter and like http://facebook.com/MiningTheSocialWeb on Facebook.
+4) Run the following command from within the top level directory that contains your Vagrantfile: vagrant up
+The first time you run this command, Vagrant will prompt you to download a base image for your virtual machine called precise64, which is an Ubuntu 12 Linux image. It may take anywhere between 10 and 30 minutes to download the base image and install the necessary updates and 3rd party packages depending on your connection speed.
+In the event that you are running a 32-bit system, you'll need to change "precise64" to "precise32" in your Vagrantfile.
+You should disable any settings which may allow your system to go into a sleep or hybernation mode while your virtual machine initially bootstraps.
 
-Be sure to also visit http://MiningTheSocialWeb.com for additional content, news, and updates about the book and code in this GitHub repository.
+What Happens Next
 
-## Preview the Full-Text of Chapter 1 (Mining Twitter)
+What should happen at this point is that Vagrant will use the Vagrantfile and Chef-based configuration management directives to download a Virtualbox base image and configure it. The first time you vagrant up, it takes ~15-45 minutes on average to download the ~323MB base image and then download/install critical updates and 3rd party packages. This time is largely dependent upon your Internet connection speed and hardware.
+When all of the dependencies are installed, Vagrant will start the IPython Notebook server automatically on the virtual machine, map a shared directory onto your host machine, and configure the necessary ports for you to use your web browser to experience IPython Notebook.
+When Vagrant finishes configuring your virtual machine, your terminal will return you back to a prompt. The final lines of its output should read something like the following:
 
-Chapter 1 of the book provides a gentle introduction to hacking on Twitter data. It's available in a variety of convenient formats
+[2013-07-27T01:45:27+00:00] INFO: runit_service[ipython] enabled [2013-07-27T01:45:27+00:00] INFO: Chef Run complete in 1553.918395 seconds [2013-07-27T01:45:27+00:00] DEBUG: Cleaning the checksum cache [2013-07-27T01:45:27+00:00] INFO: Running report handlers [2013-07-27T01:45:27+00:00] INFO: Report handlers complete [2013-07-27T01:45:27+00:00] DEBUG: Exiting
 
-* A free [PDF download](http://bit.ly/135dHfs)
-* An [online ebook](http://bit.ly/1an184a) excerpt
-* An [IPython Notebook (ipynb) file](http://bit.ly/1aIXjFf)  (checked into this repository)
+    At this point, an IPython Notebook server is running on your virtual machine, and you can access it from the web browser that you normally use on your host machine. Navigate to http://localhost:8888 and read the instructions in the "Chapter 0 - Preface" notebook to get started!
+        There is nothing else to do with the virtual machine aside from a shutting it down when you'd like to stop working and recover the memory on your guest machine. (See the "Vagrant Cheat Sheet" below.)
+        The virtual machine does not provide you with a desktop or graphical user interface. It runs an IPython Notebook server that you can connect to with your guest machine. The fundamental value proposition is that the virtual machine makes it possible to isolate and automate all of the configuration management for all example code in Mining the Social Web so that you don't have to do any of it yourself.
+        Although not absolutely necessary, it still would be a worthwhile endeavor to learn how to vagrant ssh into the virtual machine and get more comfortable working with developer tools in a terminal environment. Take it one step at a time.
 
-Choose one, or choose them all. There's no better way to get started than following along with the opening chapter.
+Vagrant Cheat Sheet
 
-## Preview the IPython Notebooks
+You are strongly encouraged to peruse Vagrant's documentation online to get a basic understanding of how it works. Once you have a general working knowledge, the following commands are likely to be the primary ones that you'll want to know how to use. Anytime you run these commands, it needs to be in the top level source code directory in which your Vagrantfile is located. Your Vagrantfile provides the basis for which the commands operate.
+Essential Commands
 
-This edition of _Mining the Social Web_ extensively uses [IPython Notebook](http://ipython.org/notebook.html) to facilitate the learning and development process. If you're interested in what the example code for any particular chapter does, the best way to preview it is with the links below. When you're ready to develop, pull the source for this GitHub repository and follow the instructions for installing the virtual machine to get started.
+    vagrant up - Starts your virtual machine.
+    vagrant status - Tells you if your virtual machine is running.
+    vagrant suspend - Saves the state of your virtual machine. (Similar to putting it to sleep.)
+    vagrant resume - Restores a suspended virtual machine. (Similar to waking it up from sleep.)
+        After your first vagrant up, a suspend/resume operation only takes a few seconds.
+        Destroying your virtual machine means that you'll need to wait through the ~20 minute boostrap process the next time that you vagrant up.
 
-A bit.ly bundle of all of these links is also available: http://bit.ly/mtsw2e-ipynb
+Commands for Advanced Users
 
-* [Chapter 0 - Preface](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 0 - Preface.html)
-* [Chapter 1 - Mining Twitter: Exploring Trending Topics, Discovering What People Are Talking About, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 1 - Mining Twitter.html)
-* [Chapter 2 - Mining Facebook: Analyzing Fan Pages, Examining Friendships, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 2 - Mining Facebook.html)
-* [Chapter 3 - Mining LinkedIn: Faceting Job Titles, Clustering Colleagues, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 3 - Mining LinkedIn.html)
-* [Chapter 4 - Mining Google+: Computing Document Similarity, Extracting Collocations, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 4 - Mining Google+.html)
-* [Chapter 5 - Mining Web Pages: Using Natural Language Processing to Understand Human Language, Summarize Blog Posts and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 5 - Mining Web Pages.html)
-* [Chapter 6 - Mining Mailboxes: Analyzing Who's Talking To Whom About What, How Often, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 6 - Mining Mailboxes.html)
-* [Chapter 7 - Mining GitHub: Inspecting Software Collaboration Habits, Building Interest Graphs, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 7 - Mining GitHub.html)
-* [Chapter 8 - Mining the Semantically Marked-Up Web: Extracting Microformats, Inferencing Over RDF, and More](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 8 - Mining the Semantically Marked-Up Web.html)
-* [Chapter 9 - Twitter Cookbook](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/Chapter 9 - Twitter Cookbook.html)
-* [Appendix A - Virtual Machine Experience](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/_Appendix A - Virtual Machine Experience.html)
-* [Appendix B - OAuth Primer](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/_Appendix B - OAuth Primer.html)
-* [Appendix C - Python & IPython Notebook Tips](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/_Appendix C - Python & IPython Notebook Tips.html)
+    vagrant halt - Shuts down your virtual machine.
+        After your first bootstrap, a vagrant up only takes about one minute to complete.
+    vagrant destroy - Destroys your virtual machine to the state of its base image.
+        After you destroy a virtual machine, a vagrant up takes the full ~20 minutes to complete.
+    vagrant ssh - Logs you into your virtual machine over SSH and provides a terminal.
 
-## Blog & Screencasts
+Troubleshooting
 
-Be sure to bookmark the [Mining the Social Web Vimeo Channel]() to stay up to date with short instructional videos that demonstrate how to use the tools in this repository. More screencasts are being added all the time, so check back often -- or better yet, subscribe to the channel. 
+    Linux/Windows users running on non-Apple hardware may experience problems running Vagrant that are related to BIOS settings
+        If you are running on non-Apple hardware such as a Dell laptop or any other system running Windows or Linux, you may very well need to review and adjust your machine's BIOS settings in order to enable virtualization, which is likely disabled by default. If you're not familiar with "BIOS settings", think of it as a special control panel that allows you to adjust some very specialized hardware specific settings. When you reboot your system, you will usually see a message that explains how to enter into your system's BIOS settings and it usually involves pressing a particular key within a few seconds from the time it displays.
+        In the BIOS settings for a Dell system, look for "Virtualization" options that may be embedded into options or menus related to "POST Behavior." The settings should provide binary options for "Off" and "Enabled" with a description to the effect of "This field specifies whether a Virtual Machine Manager (VMM) can utilize the additional hardware capabilities provided by Intel(R) Virtualization Technology. It is likely the case that the VMM technology is disabled by default, so you would want to adjust this setting to enable the VMM technology.
+        If in the course of trying to use Vagrant to startup your Virtualbox you encounter an error to the effect of "No VT-x or AMD-V CPU extension found. Reason VERR_VMX_MSR_LOCKED_OR_DISABLED", it is almost definitely the case that your BIOS settings will need to be adjusted.
+    Windows users should check to see that Git, Vagrant, SSH and other software packages are properly installed by typing "git", "vagrant", and "ssh" in a command prompt. If it is not installed, you'll get back a error message indicating that no such command could be found. If it is installed, you'll get back a message from the program indicating how to use it.
+    If you experience troubles of any kind that you can't handle yourself, reach out on Twitter, Facebook, or better yet, file an issue at GitHub to request help
+    Advanced users (who despite all attempts at convincing to use the virtual machine still prefer to run with their own installation) may benefit from reviewing the Chef-based configuration management in the deploy folder that encapsulates the steps required to get a good environment working with a minimal Linux base image. It's the exact set of steps that are used by Vagrant during configuration to bootstrap the virtual machine.
 
-<p align="center">
-<a href="https://vimeo.com/channels/MiningTheSocialWeb" target="_blank"><img src="https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/raw/master/images/screencast-installing-vm.png"
-alt="Installing the Virtual Machine" width="50%" height="50%" border="10" /></a><br />
-<em>A ~3 minute screencast on installing a powerful toolbox for social web mining.<br />
-View a collection of all available screencasts at http://bit.ly/mtsw2e-screencasts</em>
-</p>
+Consult (or contribute to) the Virtual Machine Installation Page on the wiki or open a ticket if you experience any problems.
+Git and GitHub
 
-You might also benefit from the content that is being regularly added to the companion blog at http://MiningTheSocialWeb.com
+In the event that you've never used a version control system such as Git to obtain or manage source code, be assured that it's well worth the investment to learn Git fundamentals. The first two chapters of http://gitscm.com/ are particularly worth the 15 or so minutes that it takes to complete, and you'll also find that Stack Overflow also contains a plethora of answers to common Git questions and best practice guidelines.
 
-## The _Mining the Social Web_ Virtual Machine
+The absolute minimum Git skills that you'll want to know for consuming the source code of this book include:
 
-_You may enjoy [this short screencast](https://vimeo.com/72383764) that demonstrates the step-by-step instructions involved in installing the book's virtual machine._
+    git clone - With git, you clone a repository to get its source code, and you'll need to git clone git@github.com:ptwobrussell/Mining-the-Social-Web-2nd-Edition.git to get source code for this repository. (The repository URL is provided in the right margin of https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition if you missed it.)
+    git status - You can check the status of your repository by typing git status in the source code directory that you cloned. A common reason that you'll use git status is to determine if there are updates in the remote repository that you can pull down.
+    git pull - Whenever the maintainer of a repository makes an update, you can pull the update by simply typing git pull in the source code directory that you cloned.
+    git checkout - You can use git checkout to checkout a file you may have modified to restore it to its previous state.
 
-The code for _Mining the Social Web_ is organized by chapter in an [IPython Notebook](http://ipython.org/notebook.html) format to maximize enjoyment of following along with examples as part of an interactive experience. Unfortunately, some of the Python dependencies for the example code can be a little bit tricky to get installed and configured, so providing a completely turn-key virtual machine to make your reading experience as simple and enjoyable as possible is in order. Even if you are a seasoned developer, you may still find some value in using this virtual machine to get started and save yourself some time. The virtual machine is powered with [Vagrant](http://vagrantup.com/), an amazing development tool that you'll probably want to know about and arguably makes working with virtualization even easier than a native [Virtualbox](http://www.virtualbox.org/) or VMWare image.  
+As you become more comfortable with Git, you may want to fork a Git repository, commit changes to it, and push your changes to the master branch on GitHub. Consult http://gitscm.com/ for more information on how to do these things when you are ready to make that additional leap.
 
-## Quick Start Guide
+You are certainly able to download a zip archive of a GitHub repository's source code (look for the "Download ZIP" button in the right margin), but doing so would be a bit ironic. This book is all about the social web, and you'd be avoiding the premier social coding platform that hosts its project code. GitHub is inherently social, and there are benefits to participating that you can't gain any other way besides plugging in, being part of the community, and applying some Git fundamentals to contribute from time to time. Forking code, opening pull requests, and otherwise contributing within the boundaries of the GitHub platform tooling is much easier than you might initially think because GitHub delivers such a tremendous user experience. Take a few extra minutes to checkout the source code from GitHub instead of downloading a zip archive. You'll be glad that you took those steps.
+"Git for Windows" Installation Screenshots
 
-The recommended way of getting started with the example code is by taking advantage of the Vagrant-powered virtual machine as illusrated in [this short screencast](https://www.youtube.com/watch?v=BTyKPMfi_JQ). After all, you're more interested in following along and learning from the examples than installing and managing all of the system dependencies just to get to that point, right? 
-
-[Appendix A - Virtual Machine Experience](https://rawgithub.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/html/_Appendix A - Virtual Machine Experience.html) provides clear step-by-step instructions for installing the virtual machine and is intended to serve as a quick start guide.
+The following screenshots may be helpful as references for Windows users who are installing Git for Windows.
 
 
-## The _Mining the Social Web_ Wiki
+Windows users should opt to install the developer tools while installing Git for Windows in order to get SSH, which allows Vagrant's "vagrant ssh" command to seamlessly work.
 
-This project takes advantage of its GitHub repository's [wiki](https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/wiki) to act as a point of collaboration for consumers of the source code. Feel free to use the wiki however you'd like to share your experiences, and create additional pages as needed to curate additional information.
 
-One of the more important wiki pages that you may want to bookmark is the [Advisories](https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/wiki/Advisories) page, which is an archive of notes about particularly disruptive commits or other changes that may affect you.
+Logging into your virtual machine (should you need or desire to do so for advanced troubleshooting) is as easy as "vagrant ssh" so long as you have an SSH client in your path
 
-Another page of interest is a listing of all [100+ numbered examples](https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/wiki/Numbered-Examples) from the book that conveniently hyperlink to read-only version of the IPython Notebooks
 
-## "Premium Support"
+Once you have run "vagrant up" and your virtual machine is up and running, you essentially operate as though the virtual machine is just a piece of software running like any other. For example, you'll operate in your web browser just like normal to access IPython Notebook, which is where you'll spend all of your time. The nice thing about the virtual machine experience is that it allows you to use your host operating system as usual, although it encapsulates all of the messy configuration management details to a well-known and highly controlled environment.
+Thank You!
 
-The source code in this repository is free for your use however you'd like. If you'd like to complete a more rigorous study about social web mining much like you would experience by following along with a textbook in a classroom, however, you should consider picking up a copy of [Mining the Social Web](http://bit.ly/135dHfs) and follow along. _Think of the book as offering a form of "premium support" for this open source project._ 
-
-The publisher's description of the book follows for your convenience:
-
-How can you tap into the wealth of social web data to discover who’s making connections with whom, what they’re talking about, and where they’re located? With this expanded and thoroughly revised edition, you’ll learn how to acquire, analyze, and summarize data from all corners of the social web including Facebook, Twitter, LinkedIn, Google+, GitHub, email, websites, and blogs. 
-
-* Employ IPython Notebook, the Natural Language Toolkit, NetworkX, and other scientific computing tools to mine popular social web sites
-* Apply advanced text-mining techniques, such as clustering and TF-IDF, to extract meaning from human language data
-* Bootstrap interest graphs from GitHub by discovering affinities among people, programming languages, and coding projects
-* Build interactive visualizations with D3.js, a state-of-the-art HTML5 and JavaScript toolkit 
-* Take advantage of more than two-dozen Twitter recipes presented in O’Reilly’s popular and well-known cookbook format
-
-The example code for this data science book is maintained in a public GitHub repository and is designed to be especially accessible through a turn-key virtual machine that facilitates interactive learning with an easy-to-use collection of IPython Notebooks. 
+Please file tickets here on GitHub if you experience any troubles whatsoever, and thanks again for your interest in this class. The goal in providing you with a completely turn-key machine experience is so that you can get the most out of the book and its source code -- not to divert your attention into unnecessary system configuration issues. Feedback on ways to improve this experience is always welcome, and pull requests are especially appreciated.
