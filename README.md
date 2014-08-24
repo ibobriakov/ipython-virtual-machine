@@ -1,5 +1,6 @@
-﻿
-Quick Start Instructions
+﻿Quick Start Instructions
+=================================
+
 
 In order to start the Vagrant-based virtual machine for Python environment, there are just a few easy steps to follow:
 
