@@ -4,22 +4,25 @@
 
 In order to start the Vagrant-based virtual machine for Python environment, there are just a few easy steps to follow:
 
-1) Download and install the latest copy of VirtualBox (https://www.virtualbox.org/) for your operating system
+## 1) Download and install VirtualBox (https://www.virtualbox.org/)
 Although additional working knowledge of VirtualBox could be helpful, just accomplishing an installation is sufficient. However, see an important note below for Windows and Linux users that may require you to adjust your computer's BIOS settings for virtualization
 The version of VirtualBox used as of this writing is 4.2.x. Type "VirtualBox --help" in a terminal to get version information if you already have it installed.
 
-2) Download and install Vagrant (http://www.vagrantup.com/) for your operating system
+## 2) Download and install Vagrant (http://www.vagrantup.com/)
 It is highly recommended that you take a moment to read Vagrant's excellent "Getting Started" guide as a matter of initial familiarization
 If you already have Vagrant installed, be sure that it's running version 1.2 or higher by typing "vagrant -v" in a terminal
 The creator of Vagrant has written a book about it entitled Vagrant: Up and Running (http://oreil.ly/160VQcv)
 
-3) Checkout source code of the virtual machine from this GitHub repository to your machine using Git or with the download links at the top of the main GitHub page.
+## 3) Checkout source code of the virtual machine from this GitHub repository to your machine using Git or with the download links at the top of the main GitHub page.
+In terminal go to the folder of your choice (i.e. /user/myfolder) and execute command:
+git clone https://github.com/ibobriakov/ipython-virtual-machine.git
 Windows users should install Git for Windows (http://msysgit.github.io/) as it comes bundled with an SSH client that might come in handy later if you'd like to easily login to your virtual machine guest with Vagrant. (See screenshots and notes below. It is critical that you choose the option that includes an SSH client.)
 Although you could opt to download the latest version of the source code from GitHub as a zip file (link to archive), basic familiarization with Git is likely to serve you well in your programming endeavors and is encouraged
 In a terminal, navigate to the top level directory of the source code checkout that contains Vagrantfile.
 On a Windows system, look for a Command Prompt program that's likely somewhere under your "Accessories" menu.
 
-4) Run the following command from within the top level directory that contains your Vagrantfile: vagrant up
+4) Run the following command from within the top level directory that contains your Vagrantfile: 
+    vagrant up
 The first time you run this command, Vagrant will prompt you to download a base image for your virtual machine called precise64, which is an Ubuntu 12 Linux image. It may take anywhere between 10 and 30 minutes to download the base image and install the necessary updates and 3rd party packages depending on your connection speed.
 In the event that you are running a 32-bit system, you'll need to change "precise64" to "precise32" in your Vagrantfile.
 You should disable any settings which may allow your system to go into a sleep or hybernation mode while your virtual machine initially bootstraps.
@@ -32,10 +35,10 @@ When Vagrant finishes configuring your virtual machine, your terminal will retur
 
 [2013-07-27T01:45:27+00:00] INFO: runit_service[ipython] enabled [2013-07-27T01:45:27+00:00] INFO: Chef Run complete in 1553.918395 seconds [2013-07-27T01:45:27+00:00] DEBUG: Cleaning the checksum cache [2013-07-27T01:45:27+00:00] INFO: Running report handlers [2013-07-27T01:45:27+00:00] INFO: Report handlers complete [2013-07-27T01:45:27+00:00] DEBUG: Exiting
 
-    At this point, an IPython Notebook server is running on your virtual machine, and you can access it from the web browser that you normally use on your host machine. Navigate to http://localhost:8888 and read the instructions in the "Chapter 0 - Preface" notebook to get started!
-        There is nothing else to do with the virtual machine aside from a shutting it down when you'd like to stop working and recover the memory on your guest machine. (See the "Vagrant Cheat Sheet" below.)
-        The virtual machine does not provide you with a desktop or graphical user interface. It runs an IPython Notebook server that you can connect to with your guest machine. The fundamental value proposition is that the virtual machine makes it possible to isolate and automate all of the configuration management for all example code in Mining the Social Web so that you don't have to do any of it yourself.
-        Although not absolutely necessary, it still would be a worthwhile endeavor to learn how to vagrant ssh into the virtual machine and get more comfortable working with developer tools in a terminal environment. Take it one step at a time.
+At this point, an IPython Notebook server is running on your virtual machine, and you can access it from the web browser that you normally use on your host machine. Navigate to http://localhost:8888 and you will see the list of available IPython notebooks (those notebooks are stored in /ipynb folder on your own machine)
+There is nothing else to do with the virtual machine aside from a shutting it down when you'd like to stop working and recover the memory on your guest machine. (See the "Vagrant Cheat Sheet" below.)
+The virtual machine does not provide you with a desktop or graphical user interface. It runs an IPython Notebook server that you can connect to with your guest machine. The fundamental value proposition is that the virtual machine makes it possible to isolate and automate all of the configuration management for all example code in Mining the Social Web so that you don't have to do any of it yourself.
+Although not absolutely necessary, it still would be a worthwhile endeavor to learn how to vagrant ssh into the virtual machine and get more comfortable working with developer tools in a terminal environment. Take it one step at a time.
 
 Vagrant Cheat Sheet
 
