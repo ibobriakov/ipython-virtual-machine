@@ -1,6 +1,9 @@
 ﻿Quick Start Instructions
 =================================
 
+## Before you start:
+### How to open a terminal on Mac and Windows
+### How to change and create directories
 
 In order to start the Vagrant-based virtual machine for Python environment, there are just a few easy steps to follow:
 
@@ -25,6 +28,7 @@ On a Windows system, look for a Command Prompt program that's likely somewhere u
     vagrant up
 The first time you run this command, Vagrant will prompt you to download a base image for your virtual machine called precise64, which is an Ubuntu 12 Linux image. It may take anywhere between 10 and 30 minutes to download the base image and install the necessary updates and 3rd party packages depending on your connection speed.
 In the event that you are running a 32-bit system, you'll need to change "precise64" to "precise32" in your Vagrantfile.
+You can edit Vagrantfile in a simple text editor of your choice (such as Notepad/++, textit, Sublime etc.)
 You should disable any settings which may allow your system to go into a sleep or hybernation mode while your virtual machine initially bootstraps.
 
 ## What Happens Next
