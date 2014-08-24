@@ -33,7 +33,12 @@ What should happen at this point is that Vagrant will use the Vagrantfile and Ch
 When all of the dependencies are installed, Vagrant will start the IPython Notebook server automatically on the virtual machine, map a shared directory onto your host machine, and configure the necessary ports for you to use your web browser to experience IPython Notebook.
 When Vagrant finishes configuring your virtual machine, your terminal will return you back to a prompt. The final lines of its output should read something like the following:
 
-[2013-07-27T01:45:27+00:00] INFO: runit_service[ipython] enabled [2013-07-27T01:45:27+00:00] INFO: Chef Run complete in 1553.918395 seconds [2013-07-27T01:45:27+00:00] DEBUG: Cleaning the checksum cache [2013-07-27T01:45:27+00:00] INFO: Running report handlers [2013-07-27T01:45:27+00:00] INFO: Report handlers complete [2013-07-27T01:45:27+00:00] DEBUG: Exiting
+    [2013-07-27T01:45:27+00:00] INFO: runit_service[ipython] enabled 
+    [2013-07-27T01:45:27+00:00] INFO: Chef Run complete in 1553.918395 seconds 
+    [2013-07-27T01:45:27+00:00] DEBUG: Cleaning the checksum cache 
+    [2013-07-27T01:45:27+00:00] INFO: Running report handlers 
+    [2013-07-27T01:45:27+00:00] INFO: Report handlers complete 
+    [2013-07-27T01:45:27+00:00] DEBUG: Exiting
 
 At this point, an IPython Notebook server is running on your virtual machine, and you can access it from the web browser that you normally use on your host machine. Navigate to http://localhost:8888 and you will see the list of available IPython notebooks (those notebooks are stored in /ipynb folder on your own machine)
 There is nothing else to do with the virtual machine aside from a shutting it down when you'd like to stop working and recover the memory on your guest machine. (See the "Vagrant Cheat Sheet" below.)
