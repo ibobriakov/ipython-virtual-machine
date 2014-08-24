@@ -1,9 +1,11 @@
 ﻿Quick Start Instructions
 =================================
 
-## Before you start:
-### How to open a terminal on Mac and Windows
-### How to change and create directories
+#### Before you start:
+##### How to open a terminal on Mac and Windows
+Instruction will go here
+##### How to change and create directories
+Instruction will go here
 
 In order to start the Vagrant-based virtual machine for Python environment, there are just a few easy steps to follow:
 
