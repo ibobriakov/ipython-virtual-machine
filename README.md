@@ -1,11 +1,14 @@
 ﻿#### Before you start:
 ##### How to open a terminal on Mac and Windows
+
 ###### Mac
+
 1. Using Spotlight search:
 at the top right corner of your screen you can see a "magnifier" icon. By clicking on that a window will show up. Type the application you want - "terminal" and the Spotlight will give you some suggestions from where you can select terminal
 2. Using Launchpad:
 in the left side of the application Dock you can see a "rocket" icon in a silver circle.
-When you click on that you will see the list of your applications, and in the top-middle, you can see a search box, type "terminal" and you will see the terminal icon, click on it and you should have terminal launched
+When you click on that you will see the list of your applications, and in the top-middle, you can see a search box, type "terminal" and you will see the terminal icon, click on it and you should have terminal launched.
+
 ###### Windows
 1. Standard Windows terminal
 - Go to Start panel
@@ -16,14 +19,14 @@ When you click on that you will see the list of your applications, and in the to
 Alternatively, you can install Console2 application (http://www.softpedia.com/get/System/OS-Enhancements/Marko-Bozikovic-Console.shtml), where you can have multiple tabs, change fonts and few other enchancements
 ##### How to change and create directories
 When you succesfully opened terminal, you can perform simple operations with directories.
-ls - shows all folders in current location
+ls - shows all folders in current location:
     ls
-cd - change location
+cd - change location:
     cd test1 - will move you into "test1" folder
     cd .. - will move you one level up 
-mkdir - make folder
+mkdir - make folder:
     mkdir test2 - will make folder "test2" inside current location
-rmdir - remove folder
+rmdir - remove folder:
     rmdir test2 - will remove folder "test2"
 
 Quick Start Instructions
@@ -36,18 +39,17 @@ In order to start the Vagrant-based virtual machine for Python environment, ther
 
 ## 4) Open a terminal window
 
-## 5) Go to the folder where you want to store the Vagrant virtual machine for the class 
-(e.g., /Users/Panos/)
-cd /Users/Panos
+## 5) Go to the folder where you want to store the Vagrant virtual machine for the class (e.g., /Users/Panos/) :
+    cd /Users/Panos
 
-## 6) Create a directory to store the Vagrant virtual machine for the class
-mkdir DealingWithData
-cd /Users/Panos/DealingWithData
+## 6) Create a directory to store the Vagrant virtual machine for the class:
+    mkdir DealingWithData
+    cd /Users/Panos/DealingWithData
 
-## 7) Download this zip file: <I MAY NEED YOU TO PUT IT IN DROPBOX OR SOMEWHERE> and store in the folder
+## 7) Download this zip file: "I MAY NEED YOU TO PUT IT IN DROPBOX OR SOMEWHERE" and store in the folder
 that you created
 
-## 8) Go to the folder that you created and start Vagrant
+## 8) Go to the folder that you created and start Vagrant:
 
     cd /Users/Panos/DealingWithData
     vagrant up
@@ -59,7 +61,7 @@ You should disable any settings which may allow your system to go into a sleep o
 
 Right now, your virtual machine is running
 
-You can connect to machine in a command line 
+You can connect to machine in a command line: 
     vagrant ssh
 After that you will be connected to this machine and can implement different Unix commands
 
