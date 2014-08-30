@@ -11,6 +11,7 @@ When you click on that you will see the list of your applications, and in the to
 
 ###### Windows
 1. Standard Windows terminal:
+
     -Go to Start panel
     -Write "cmd" in search input field
     -After "cmd" program is found you can execute it
