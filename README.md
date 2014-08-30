@@ -11,10 +11,10 @@ When you click on that you will see the list of your applications, and in the to
 
 ###### Windows
 1. Standard Windows terminal
-- Go to Start panel
-- Write "cmd" in search input field
-- After "cmd" program is found you can execute it
-- After succesful execution you will see black screen with command promp, where you can run commands
+    Go to Start panel
+    Write "cmd" in search input field
+    After "cmd" program is found you can execute it
+    After succesful execution you will see black screen with command promp, where you can run commands
 
 2. Enchanced Windows terminal (console)
 Alternatively, you can install Console2 application (http://www.softpedia.com/get/System/OS-Enhancements/Marko-Bozikovic-Console.shtml), where you can have multiple tabs, change fonts and few other enchancements
@@ -63,8 +63,10 @@ You should disable any settings which may allow your system to go into a sleep o
 
 Right now, your virtual machine is running
 
-You can connect to machine in a command line: 
+You can connect to machine in a command line:
+
     vagrant ssh
+
 After that you will be connected to this machine and can implement different Unix commands
 
 You can access the iPython server at http://localhost:8888/ where you
