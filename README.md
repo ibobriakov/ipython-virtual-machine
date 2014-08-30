@@ -22,17 +22,17 @@ Alternatively, you can install Console2 application (http://www.softpedia.com/ge
 
 ##### How to change and create directories
 When you succesfully opened terminal, you can perform simple operations with directories.
-ls - shows all folders in current location:
+###### ls - shows all folders in current location:
     ls
 
-cd - change location:
+###### cd - change location:
     cd test1 - will move you into "test1" folder
     cd .. - will move you one level up 
 
-mkdir - make folder:
+###### mkdir - make folder:
     mkdir test2 - will make folder "test2" inside current location
-    
-rmdir - remove folder:
+
+###### rmdir - remove folder:
     rmdir test2 - will remove folder "test2"
 
 Quick Start Instructions
