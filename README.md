@@ -14,9 +14,11 @@ When you click on that you will see the list of your applications, and in the to
 - Go to Start panel
 - Write "cmd" in search input field
 - After "cmd" program is found you can execute it
-- After succesful execution you will see black screen with command promp, where you can run command
+- After succesful execution you will see black screen with command promp, where you can run commands
+
 2. Enchanced Windows terminal (console)
 Alternatively, you can install Console2 application (http://www.softpedia.com/get/System/OS-Enhancements/Marko-Bozikovic-Console.shtml), where you can have multiple tabs, change fonts and few other enchancements
+
 ##### How to change and create directories
 When you succesfully opened terminal, you can perform simple operations with directories.
 ls - shows all folders in current location:
@@ -33,23 +35,23 @@ Quick Start Instructions
 =================================
 In order to start the Vagrant-based virtual machine for Python environment, there are just a few easy steps to follow:
 
-## 1) Download and install VirtualBox (https://www.virtualbox.org/)
+#### 1) Download and install VirtualBox (https://www.virtualbox.org/)
 
-## 2) Download and install Vagrant (http://www.vagrantup.com/)
+#### 2) Download and install Vagrant (http://www.vagrantup.com/)
 
-## 4) Open a terminal window
+#### 4) Open a terminal window
 
-## 5) Go to the folder where you want to store the Vagrant virtual machine for the class (e.g., /Users/Panos/) :
+#### 5) Go to the folder where you want to store the Vagrant virtual machine for the class (e.g., /Users/Panos/) :
     cd /Users/Panos
 
-## 6) Create a directory to store the Vagrant virtual machine for the class:
+#### 6) Create a directory to store the Vagrant virtual machine for the class:
     mkdir DealingWithData
     cd /Users/Panos/DealingWithData
 
-## 7) Download this zip file: "I MAY NEED YOU TO PUT IT IN DROPBOX OR SOMEWHERE" and store in the folder
+#### 7) Download this zip file: "I MAY NEED YOU TO PUT IT IN DROPBOX OR SOMEWHERE" and store in the folder
 that you created
 
-## 8) Go to the folder that you created and start Vagrant:
+#### 8) Go to the folder that you created and start Vagrant:
 
     cd /Users/Panos/DealingWithData
     vagrant up
