@@ -2,7 +2,7 @@
 ##### How to open a terminal on Mac and Windows
 Instruction will go here
 ##### How to change and create directories
-Instruction will go here
+Instruction will go here s
 
 Quick Start Instructions
 =================================
