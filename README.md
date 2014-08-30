@@ -15,7 +15,8 @@ When you click on that you will see the list of your applications, and in the to
     Go to Start panel
     Write "cmd" in search input field
     After "cmd" program is found you can execute it
-    After succesful execution you will see black screen with command promp, where you can run commands
+
+After succesful execution you will see black screen with command promp, where you can run commands
 
 ####### 2. Enchanced Windows terminal (console)
 Alternatively, you can install Console2 application (http://www.softpedia.com/get/System/OS-Enhancements/Marko-Bozikovic-Console.shtml), where you can have multiple tabs, change fonts and few other enchancements
