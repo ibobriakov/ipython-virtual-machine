@@ -12,10 +12,10 @@ When you click on that you will see the list of your applications, and in the to
 ###### Windows
 1. Standard Windows terminal:
 
-    -Go to Start panel
-    -Write "cmd" in search input field
-    -After "cmd" program is found you can execute it
-    -After succesful execution you will see black screen with command promp, where you can run commands
+    Go to Start panel
+    Write "cmd" in search input field
+    After "cmd" program is found you can execute it
+    After succesful execution you will see black screen with command promp, where you can run commands
 
 2. Enchanced Windows terminal (console)
 Alternatively, you can install Console2 application (http://www.softpedia.com/get/System/OS-Enhancements/Marko-Bozikovic-Console.shtml), where you can have multiple tabs, change fonts and few other enchancements
@@ -24,11 +24,14 @@ Alternatively, you can install Console2 application (http://www.softpedia.com/ge
 When you succesfully opened terminal, you can perform simple operations with directories.
 ls - shows all folders in current location:
     ls
+
 cd - change location:
     cd test1 - will move you into "test1" folder
     cd .. - will move you one level up 
+
 mkdir - make folder:
     mkdir test2 - will make folder "test2" inside current location
+    
 rmdir - remove folder:
     rmdir test2 - will remove folder "test2"
 
@@ -49,8 +52,7 @@ In order to start the Vagrant-based virtual machine for Python environment, ther
     mkdir DealingWithData
     cd /Users/Panos/DealingWithData
 
-#### 7) Download this zip file: "I MAY NEED YOU TO PUT IT IN DROPBOX OR SOMEWHERE" and store in the folder
-that you created
+#### 7) Download this zip file: "I MAY NEED YOU TO PUT IT IN DROPBOX OR SOMEWHERE" and store in the folder that you created
 
 #### 8) Go to the folder that you created and start Vagrant:
 
